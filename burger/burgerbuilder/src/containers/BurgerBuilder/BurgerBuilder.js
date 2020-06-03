@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Aux from '../../hoc/Aux';
+import Aux from '../../hoc/Auxiliary/Auxiliary';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
@@ -13,9 +13,6 @@ const INGREDIENT_PRICES = {
 }
 
 class BurgerBuilder extends Component{
-
-    // key value pairs to send value into the burger component
-    // this is an object declaration not an array
     state = {
         ingredients : {
             salad : 0,
@@ -29,8 +26,7 @@ class BurgerBuilder extends Component{
     }
 
     updatePurchaseState (ingredients) {
-   
-        const sum = Object.keys(ingredients)
+         const sum = Object.keys(ingredients)
             .map(igKey => {
                 return ingredients[igKey]
             }).reduce((sum, el)=> {
@@ -105,7 +101,7 @@ class BurgerBuilder extends Component{
 
         return(
             <Aux>
-                <Modal show={this.state.purchasing}
+                <Modal show={this.state.purchasing} 
                         modalClosed={this.purchaseCancelHandler}
                 >
                     <OrderSummary ingredients={this.state.ingredients}
@@ -128,4 +124,3 @@ class BurgerBuilder extends Component{
 }
 
 export default BurgerBuilder;
-
